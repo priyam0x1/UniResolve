@@ -1,4 +1,6 @@
-const complaints = [
+// These are sample complaint
+
+const sampleComplaints = [
   {
     fullname: "Rahul Sharma",
     uni_id: "UNI2026001",
@@ -10,7 +12,7 @@ const complaints = [
       "There has been no proper water supply in our hostel since yesterday.",
     image:
       "https://goonsalescorporation.com/wp-content/uploads/2025/11/sdlx200400b-bluestar-400-storage-water-cooler-300x300.jpeg",
-    forward_to: "Hostel Warden",
+    forward_to: "",
     status: "Pending",
   },
   {
@@ -24,7 +26,7 @@ const complaints = [
       "The assignment submitted last month has not been evaluated yet.",
     image:
       "https://images.news18.com/ibnkhabar/uploads/2022/12/board-exam-copy-checking-rules.jpg",
-    forward_to: "Department Head",
+    forward_to: "",
     status: "Pending",
   },
   {
@@ -38,8 +40,8 @@ const complaints = [
       "The ceiling fan in Room 204 has not been working for several days.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf6ZL0j2r4Ct-p4ilgLyOGXgDIHeGouMVDEOzodEzVb50j35LVG3_oEwo&s=10",
-    forward_to: "Maintenance Department",
-    status: "In Progress",
+    forward_to: "",
+    status: "Pending",
   },
   {
     fullname: "Neha Sharma",
@@ -52,7 +54,7 @@ const complaints = [
       "The library study area is often overcrowded during examination periods.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXjXZEcRUq-XfwkRhB1etI1QHUWvc69dqjvJa4_8rv54qQ10N_Ri6d5O8&s=10",
-    forward_to: "Library Administration",
+    forward_to: "",
     status: "Pending",
   },
   {
@@ -66,7 +68,9 @@ const complaints = [
       "The evening university bus is frequently arriving late, causing students to miss their connections.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjo7rKNMcSxxCfEJjUZQK-6wyw38PLZ6xWGvzM4bAsp4PJGWTesPthg9dr&s=10",
-    forward_to: "Transport Department",
-    status: "Resolved",
+    forward_to: "",
+    status: "Pending",
   },
 ];
+
+module.exports = { data: sampleComplaints };
