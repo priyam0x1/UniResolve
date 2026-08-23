@@ -48,7 +48,16 @@
             </div>
         <% } %>
 
-        <form method="post" action="/admin/<%=complaint._id%>">
+        <% if (complaint.status === "forwarded" || complaint.forward_to) { %>
+
+    <div style="margin-top: 5px;">
+        <strong>Forwarded To:</strong>
+        <%= complaint.forward_to %>
+    </div>
+
+    <% } else { %>
+
+    <form method="post" action="/admin/<%= complaint._id %>">
         <div style="margin-top: 5px;">
             <strong>Forward To:</strong>
 
@@ -63,7 +72,9 @@
 
             <button>Forward</button>
         </div>
-        </form>
+    </form>
+
+<% } %>
 
 
     </div>
