@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <% allComplaint.forEach(complaint => { %>
+
+<div style="
+    width: 80vw;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+">
+
+    <h3 style="margin: 0 0 10px 0;">
+        <%= complaint.title %>
+    </h3>
+
+    <div style="display: flex; flex-direction: column; gap: 5px;">
+
+        <div><strong>Name:</strong> <%= complaint.fullname %></div>
+
+        <div><strong>University ID:</strong> <%= complaint.uni_id %></div>
+
+        <div><strong>Role:</strong> <%= complaint.role %></div>
+
+        <div><strong>Department:</strong> <%= complaint.dept %></div>
+
+        <div><strong>Category:</strong> <%= complaint.category %></div>
+
+        <div>
+            <strong>Description:</strong>
+            <%= complaint.description %>
+        </div>
+
+        <div><strong>Status:</strong> <%= complaint.status || "Pending" %></div>
+
+        <% if (complaint.image) { %>
+            <div>
+                <strong>Image:</strong><br>
+                <img src="<%= complaint.image %>"
+                     style="max-width: 150px; max-height: 100px; margin-top: 5px;">
+            </div>
+        <% } %>
+
+        <form method="post" action="/admin/<%=complaint._id%>">
+        <div style="margin-top: 5px;">
+            <strong>Forward To:</strong>
+
+            <select name="forward_to">
+                <option value="">Select</option>
+                <option value="CSE HOD">CSE HOD</option>
+                <option value="VC">VC</option>
+                <option value="Register">Register</option>
+                <option value="Exam Controller">Exam Controller</option>
+                <option value="Hostel Warden">Hostel Warden</option>
+            </select>
+
+            <button>Forward</button>
+        </div>
+        </form>
+
+
+    </div>
+
+</div>
+
+<% }) %>
+  </body>
+</html>

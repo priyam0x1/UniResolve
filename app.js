@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Complaint = require("./models/complaint.js");
+const Authority = require("./models/authority.js");
+
+app.set("view engine", "ejs");
+app.set("views", "./views");
+app.use(express.urlencoded({ extended: true }));
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/uniResolve";
 main()
@@ -16,8 +21,34 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
-app.get("/", (req, res) => {
-  res.send("You are at root");
+// ====================================Nodemailer || Starting ==========================================
+
+// ====================================Nodemailer || Done ==========================================
+
+app.get("/home", (req, res) => {
+  res.render("home.ejs");
+});
+
+app.get("/home/register", (req, res) => {
+  res.render("register.ejs");
+});
+
+app.post("/complaint", (req, res) => {
+  console.log(req.body.complaint);
+  res.redirect("/home");
+});
+
+app.get("/admin", async (req, res) => {
+  let allComplaint = await Complaint.find();
+  res.render("admin.ejs", { allComplaint });
+});
+
+app.post("/admin/:id", async (req, res) => {
+  console.log(req.params.id);
+  let complaint = await Complaint.findById(req.params.id);
+  complaint.forward_to = req.body.forward_to;
+  console.log(complaint);
+  res.redirect("/admin");
 });
 
 // app.get("/testComplaint", async (req, res) => {
