@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/complaint" method="POST">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          padding-left: 25rem;
+          gap: 8px;
+          width: 400px;
+        "
+      >
+        <label>Full Name</label>
+        <input type="text" name="complaint[fullname]" />
+
+        <label>University ID</label>
+        <input type="text" name="complaint[uni_id]" />
+
+        <label>Role</label>
+        <select name="complaint[role]">
+          <option value="">Select Role</option>
+          <option value="Student">Student</option>
+          <option value="Faculty">Faculty</option>
+          <option value="Staff">Staff</option>
+        </select>
+
+        <label>Department</label>
+        <input type="text" name="complaint[dept]" />
+
+        <label>Category</label>
+        <select name="complaint[category]">
+          <option value="">Select Category</option>
+          <option value="Academic">Academic</option>
+          <option value="Hostel">Hostel</option>
+          <option value="Examination">Examination</option>
+          <option value="Fees">Fees</option>
+          <option value="Infrastructure">Infrastructure</option>
+          <option value="Faculty">Faculty</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label>Title</label>
+        <input type="text" name="complaint[title]" />
+
+        <label>Description</label>
+        <textarea name="complaint[description]"></textarea>
+
+        <label>Image</label>
+        <input type="file" name="complaint[image]" />
+
+        <button>Submit Complaint</button>
+      </div>
+    </form>
+  </body>
+</html>
